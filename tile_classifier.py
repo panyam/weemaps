@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import os
 import json
+import math
 
 class HexTileClassifier:
     def __init__(self, tiles_folder="AllTiles"):
@@ -22,7 +23,26 @@ class HexTileClassifier:
                     print(f"Loaded tile {tile_num}")
         print(f"Total reference tiles loaded: {len(self.reference_tiles)}")
     
-    def find_best_match(self, tile_region):
+    def create_hexagon_mask(self, width, height):
+        """Create a hexagonal mask for a given width and height"""
+        mask = np.zeros((height, width), dtype=np.uint8)
+        
+        # Create hexagon vertices
+        center_x, center_y = width // 2, height // 2
+        
+        # Hexagon points (roughly)
+        points = []
+        for i in range(6):
+            angle = i * math.pi / 3
+            x = center_x + (width // 2 - 2) * math.cos(angle)
+            y = center_y + (height // 2 - 2) * math.sin(angle)
+            points.append([int(x), int(y)])
+        
+        # Fill the hexagon
+        cv2.fillPoly(mask, [np.array(points)], 255)
+        return mask
+    
+    def find_best_match(self, tile_region, hex_mask):
         """Find the best matching reference tile for a given tile region"""
         best_match = None
         best_score = float('inf')
@@ -34,8 +54,12 @@ class HexTileClassifier:
             else:
                 ref_tile_resized = ref_tile
             
+            # Apply hexagonal mask to both tiles
+            masked_tile = cv2.bitwise_and(tile_region, tile_region, mask=hex_mask)
+            masked_ref = cv2.bitwise_and(ref_tile_resized, ref_tile_resized, mask=hex_mask)
+            
             # Calculate similarity using template matching
-            result = cv2.matchTemplate(tile_region, ref_tile_resized, cv2.TM_SQDIFF_NORMED)
+            result = cv2.matchTemplate(masked_tile, masked_ref, cv2.TM_SQDIFF_NORMED)
             min_val = np.min(result)
             
             if min_val < best_score:
@@ -69,20 +93,20 @@ class HexTileClassifier:
         # Determine grid dimensions by analyzing the map
         map_height, map_width = map_img.shape[:2]
         
-        # Calculate approximate number of rows and columns
-        max_rows = (map_height - tile_height) // v_spacing + 1
-        max_cols = (map_width - tile_width) // h_spacing + 1
+        # Calculate grid starting position to center the grid
+        start_x = (map_width % h_spacing) // 2
+        start_y = (map_height % v_spacing) // 2
         
-        print(f"Estimated grid size: {max_rows} rows x {max_cols} columns")
         print(f"Hex spacing: horizontal={h_spacing}, vertical={v_spacing}")
+        print(f"Grid starting position: ({start_x}, {start_y})")
         
         return {
             'tile_width': tile_width,
             'tile_height': tile_height,
             'h_spacing': h_spacing,
             'v_spacing': v_spacing,
-            'max_rows': max_rows,
-            'max_cols': max_cols,
+            'start_x': start_x,
+            'start_y': start_y,
             'map_width': map_width,
             'map_height': map_height
         }
@@ -102,6 +126,9 @@ class HexTileClassifier:
         if grid_info is None:
             return None
         
+        # Create hexagonal mask
+        hex_mask = self.create_hexagon_mask(grid_info['tile_width'], grid_info['tile_height'])
+        
         # Initialize results
         tile_array = []
         classification_details = []
@@ -109,35 +136,23 @@ class HexTileClassifier:
         # Extract and classify tiles
         print("Extracting and classifying tiles...")
         
-        for row in range(grid_info['max_rows']):
+        row = 0
+        for y in range(grid_info['start_y'], grid_info['map_height'] - grid_info['tile_height'], grid_info['v_spacing']):
             tile_row = []
             detail_row = []
-            
-            # Calculate y position
-            y = row * grid_info['v_spacing']
-            
-            # Skip if y position would go beyond image bounds
-            if y + grid_info['tile_height'] > grid_info['map_height']:
-                break
             
             # Calculate x offset for hexagonal pattern (every other row is offset)
             x_offset = (grid_info['h_spacing'] // 2) if row % 2 == 1 else 0
             
-            for col in range(grid_info['max_cols']):
-                # Calculate x position
-                x = col * grid_info['h_spacing'] + x_offset
-                
-                # Skip if x position would go beyond image bounds
-                if x + grid_info['tile_width'] > grid_info['map_width']:
-                    break
-                
+            col = 0
+            for x in range(grid_info['start_x'] + x_offset, grid_info['map_width'] - grid_info['tile_width'], grid_info['h_spacing']):
                 # Extract tile region
                 tile_region = map_img[y:y+grid_info['tile_height'], x:x+grid_info['tile_width']]
                 
                 # Only process if we have a complete tile
                 if tile_region.shape[0] == grid_info['tile_height'] and tile_region.shape[1] == grid_info['tile_width']:
                     # Classify the tile
-                    tile_match, confidence = self.find_best_match(tile_region)
+                    tile_match, confidence = self.find_best_match(tile_region, hex_mask)
                     
                     if tile_match:
                         tile_row.append(int(tile_match))
@@ -155,10 +170,14 @@ class HexTileClassifier:
                             'position': {'row': row, 'col': col, 'x': x, 'y': y}
                         })
                         print(f"Row {row}, Col {col}: Unknown tile")
+                
+                col += 1
             
             if tile_row:  # Only add non-empty rows
                 tile_array.append(tile_row)
                 classification_details.append(detail_row)
+            
+            row += 1
         
         # Save results
         results = {
