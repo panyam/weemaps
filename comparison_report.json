@@ -1,0 +1,10 @@
+{
+  "original_image": "map.png",
+  "generated_image": "correct_generated_map.png",
+  "original_hash": 2123427667265065859,
+  "generated_hash": 9444967169529593077,
+  "phash_similarity": 37.5,
+  "ssim_similarity": 17.38234018961751,
+  "hamming_distance": 40,
+  "difference_image": "difference_map.png"
+}
