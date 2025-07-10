@@ -4,7 +4,7 @@ import json
 import os
 
 class ImprovedPNGGenerator:
-    def __init__(self, tiles_folder="AllTiles"):
+    def __init__(self, tiles_folder="../AllTiles"):
         self.tiles_folder = tiles_folder
     
     def load_classification_results(self, json_file="improved_hex_classification.json"):

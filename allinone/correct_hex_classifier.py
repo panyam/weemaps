@@ -5,7 +5,7 @@ import json
 import math
 
 class CorrectHexClassifier:
-    def __init__(self, tiles_folder="AllTiles"):
+    def __init__(self, tiles_folder="../AllTiles"):
         self.tiles_folder = tiles_folder
         self.reference_tiles = {}
         self.load_reference_tiles()

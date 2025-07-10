@@ -5,7 +5,7 @@ import math
 from PIL import Image
 
 class HexMapVisualizer:
-    def __init__(self, tiles_folder="AllTiles"):
+    def __init__(self, tiles_folder="../AllTiles"):
         self.tiles_folder = tiles_folder
         self.tile_size = 64  # Default tile size
         self.hex_width = 64

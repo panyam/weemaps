@@ -28,7 +28,7 @@ def extract_hexagonal_tiles(image_path, output_folder="extracted_tiles"):
     os.makedirs(output_folder, exist_ok=True)
     
     # Load reference tiles
-    reference_tiles = load_reference_tiles("AllTiles")
+    reference_tiles = load_reference_tiles("../AllTiles")
     
     # Convert to RGB for processing
     map_rgb = cv2.cvtColor(map_img, cv2.COLOR_BGR2RGB)

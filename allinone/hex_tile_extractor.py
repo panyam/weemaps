@@ -73,7 +73,7 @@ def extract_hexagonal_tiles_improved(image_path, output_folder="extracted_tiles"
     os.makedirs(output_folder, exist_ok=True)
     
     # Load reference tiles to get tile dimensions
-    reference_tiles = load_reference_tiles("AllTiles")
+    reference_tiles = load_reference_tiles("../AllTiles")
     if not reference_tiles:
         print("No reference tiles found!")
         return

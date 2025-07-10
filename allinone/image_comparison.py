@@ -48,7 +48,7 @@ class ImageComparator:
             return False
         
         # Load a reference tile to get dimensions
-        tiles_folder = "AllTiles"
+        tiles_folder = "../AllTiles"
         ref_tile_path = None
         for filename in os.listdir(tiles_folder):
             if filename.endswith('.png'):
