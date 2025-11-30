@@ -1,0 +1,5 @@
+{
+  "name": "WeeMap Scanner AI",
+  "description": "A tool to reverse-engineer game states from screenshots of hex-based strategy games using TensorFlow.js and transfer learning.",
+  "requestFramePermissions": []
+}
