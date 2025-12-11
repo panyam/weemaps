@@ -60,5 +60,19 @@ export const samplePresets: SamplePreset[] = [
       gridWidth: 20,
       gridHeight: 15,
     },
+  },
+  {
+    id: 'weewar-3',
+    name: 'WeeWar - Four Players',
+    description: 'Higher Straits',
+    imagePath: PATH_PREFIX + '/samples/weewar/preset3.png',
+    config: {
+      originX: 0,
+      originY: 32,
+      width: 64,
+      height: 69.5,
+      gridWidth: 64,
+      gridHeight: 69.5
+    },
   }
 ];
