@@ -134,6 +134,7 @@ class ActionType(Enum):
     MOVE = "m"
     ATTACK = "a"
     HEAL = "h"
+    CAPTURE = "c"
 
 
 # =============================================================================
@@ -274,8 +275,28 @@ class HealAction:
         return []
 
 
+@dataclass
+class CaptureAction:
+    """A capture action - unit begins capturing a base."""
+    action_type: ActionType = field(default=ActionType.CAPTURE, init=False)
+    x: int  # col in Even-R
+    y: int  # row in Even-R
+
+    def __str__(self) -> str:
+        return f"Capture at ({self.x}, {self.y})"
+
+    def to_ww_command(self) -> str:
+        """Generate ww CLI command for this capture action."""
+        pos = coord_str(self.x, self.y, _coord_offset_dr, _coord_offset_dc)
+        return f"ww capture {pos}"
+
+    def to_ww_asserts(self) -> list[str]:
+        """No assertions needed for capture action."""
+        return []
+
+
 # Union type for all actions
-Action = Union[BuildAction, MoveAction, AttackAction, HealAction]
+Action = Union[BuildAction, MoveAction, AttackAction, HealAction, CaptureAction]
 
 
 # =============================================================================
@@ -427,7 +448,7 @@ class WeewarGame:
             print(f"\n{round_data}")
         print()
 
-    def print_ww_commands(self, game_id: str = "testgame") -> None:
+    def print_ww_commands(self, game_id: str = "testgame", world_id: Optional[str] = None) -> None:
         """Print ww CLI commands with assertions to replay and validate the game."""
         print("#!/bin/bash")
         print("set -e  # Exit on first error")
@@ -440,7 +461,8 @@ class WeewarGame:
         print(f"# Players: {', '.join(p.username for p in self.players)}")
         print()
         print("# Give user the chance to set the world id here")
-        print('WORLD_ID="ENTER_YOUR_WORLD_ID_HERE"')
+        world_id_value = world_id if world_id else "ENTER_YOUR_WORLD_ID_HERE"
+        print(f'WORLD_ID="{world_id_value}"')
         print("# Look for the line that has \"export WEEWAR_GAME_ID=....\" here so we can extract gameid from it")
         print('gameIdLine=$(ww new $WORLD_ID | grep "export WEEWAR_GAME_ID")')
         print('gameId=$(echo $gameIdLine | sed -e "s/.*export.WEEWAR_GAME_ID=//g")')
@@ -698,6 +720,7 @@ Examples:
   python history.py game.json              # Print human-readable game log
   python history.py game.json --ww         # Print ww CLI commands
   python history.py game.json --ww --game-id mygame   # With custom game ID
+  python history.py game.json --ww --world-id abc123  # With specific world ID
   python history.py game.json --ww --drdc=1,-2        # With coordinate offset (dr=1, dc=-2)
   python history.py game.json --ww --drdc=-3,-4       # Use = for negative values
   python history.py game.json --ww --even             # Assume Weewar uses Even-R coords
@@ -715,6 +738,8 @@ Examples:
                         help="Assume Weewar coordinates are Even-R (default: Odd-R)")
     parser.add_argument("--mapping", type=str, default="~/mapping.json",
                         help="Path to mapping.json for unit/terrain labels (default: ~/mapping.json)")
+    parser.add_argument("--world-id", type=str, default=None,
+                        help="World ID to use for game creation (replaces ENTER_YOUR_WORLD_ID_HERE)")
 
     args = parser.parse_args()
 
@@ -747,7 +772,7 @@ Examples:
 
     if args.ww:
         # Output ww CLI commands with assertions
-        game.print_ww_commands(game_id=args.game_id)
+        game.print_ww_commands(game_id=args.game_id, world_id=args.world_id)
     else:
         # Human-readable output
         game.print_game_log()
