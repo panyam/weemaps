@@ -561,6 +561,11 @@ def parse_action(raw_action: list) -> Action:
             x=raw_action[1],
             y=raw_action[2]
         )
+    elif action_code == "c":
+        return CaptureAction(
+            x=raw_action[1],
+            y=raw_action[2]
+        )
     else:
         raise ValueError(f"Unknown action type: {action_code}")
 
