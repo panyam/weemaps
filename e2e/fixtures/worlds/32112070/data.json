@@ -1,0 +1,530 @@
+{
+  "tiles_map": {
+    "-1,3": {
+      "q": -1,
+      "r": 3,
+      "tile_type": 5,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "-1,4": {
+      "q": -1,
+      "r": 4,
+      "tile_type": 9,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "-1,5": {
+      "q": -1,
+      "r": 5,
+      "tile_type": 8,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "-1,6": {
+      "q": -1,
+      "r": 6,
+      "tile_type": 9,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "-1,7": {
+      "q": -1,
+      "r": 7,
+      "tile_type": 10,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "0,2": {
+      "q": 0,
+      "r": 2,
+      "tile_type": 5,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "0,3": {
+      "q": 0,
+      "r": 3,
+      "tile_type": 1,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "0,4": {
+      "q": 0,
+      "r": 4,
+      "tile_type": 5,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "0,5": {
+      "q": 0,
+      "r": 5,
+      "tile_type": 9,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "0,6": {
+      "q": 0,
+      "r": 6,
+      "tile_type": 5,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "0,7": {
+      "q": 0,
+      "r": 7,
+      "tile_type": 10,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "1,1": {
+      "q": 1,
+      "r": 1,
+      "tile_type": 5,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "1,2": {
+      "q": 1,
+      "r": 2,
+      "tile_type": 5,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "1,3": {
+      "q": 1,
+      "r": 3,
+      "tile_type": 5,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "1,4": {
+      "q": 1,
+      "r": 4,
+      "tile_type": 5,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "1,5": {
+      "q": 1,
+      "r": 5,
+      "tile_type": 7,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "1,6": {
+      "q": 1,
+      "r": 6,
+      "tile_type": 5,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "1,7": {
+      "q": 1,
+      "r": 7,
+      "tile_type": 9,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "2,0": {
+      "q": 2,
+      "r": 0,
+      "tile_type": 7,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "2,1": {
+      "q": 2,
+      "r": 1,
+      "tile_type": 1,
+      "player": 1,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "2,2": {
+      "q": 2,
+      "r": 2,
+      "tile_type": 5,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "2,3": {
+      "q": 2,
+      "r": 3,
+      "tile_type": 7,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "2,4": {
+      "q": 2,
+      "r": 4,
+      "tile_type": 5,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "2,5": {
+      "q": 2,
+      "r": 5,
+      "tile_type": 5,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "2,6": {
+      "q": 2,
+      "r": 6,
+      "tile_type": 5,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "2,7": {
+      "q": 2,
+      "r": 7,
+      "tile_type": 7,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "3,0": {
+      "q": 3,
+      "r": 0,
+      "tile_type": 7,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "3,1": {
+      "q": 3,
+      "r": 1,
+      "tile_type": 5,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "3,2": {
+      "q": 3,
+      "r": 2,
+      "tile_type": 5,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "3,3": {
+      "q": 3,
+      "r": 3,
+      "tile_type": 5,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "3,4": {
+      "q": 3,
+      "r": 4,
+      "tile_type": 7,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "3,5": {
+      "q": 3,
+      "r": 5,
+      "tile_type": 5,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "3,6": {
+      "q": 3,
+      "r": 6,
+      "tile_type": 1,
+      "player": 2,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "3,7": {
+      "q": 3,
+      "r": 7,
+      "tile_type": 7,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "4,0": {
+      "q": 4,
+      "r": 0,
+      "tile_type": 9,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "4,1": {
+      "q": 4,
+      "r": 1,
+      "tile_type": 5,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "4,2": {
+      "q": 4,
+      "r": 2,
+      "tile_type": 5,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "4,3": {
+      "q": 4,
+      "r": 3,
+      "tile_type": 5,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "4,4": {
+      "q": 4,
+      "r": 4,
+      "tile_type": 5,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "4,5": {
+      "q": 4,
+      "r": 5,
+      "tile_type": 5,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "4,6": {
+      "q": 4,
+      "r": 6,
+      "tile_type": 5,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "5,0": {
+      "q": 5,
+      "r": 0,
+      "tile_type": 10,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "5,1": {
+      "q": 5,
+      "r": 1,
+      "tile_type": 5,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "5,2": {
+      "q": 5,
+      "r": 2,
+      "tile_type": 9,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "5,3": {
+      "q": 5,
+      "r": 3,
+      "tile_type": 5,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "5,4": {
+      "q": 5,
+      "r": 4,
+      "tile_type": 1,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "5,5": {
+      "q": 5,
+      "r": 5,
+      "tile_type": 5,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "6,0": {
+      "q": 6,
+      "r": 0,
+      "tile_type": 10,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "6,1": {
+      "q": 6,
+      "r": 1,
+      "tile_type": 9,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "6,2": {
+      "q": 6,
+      "r": 2,
+      "tile_type": 8,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "6,3": {
+      "q": 6,
+      "r": 3,
+      "tile_type": 9,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    },
+    "6,4": {
+      "q": 6,
+      "r": 4,
+      "tile_type": 5,
+      "player": 0,
+      "shortcut": "",
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0
+    }
+  },
+  "units_map": {
+    "1,1": {
+      "q": 1,
+      "r": 1,
+      "player": 1,
+      "unit_type": 1,
+      "shortcut": "",
+      "available_health": 10,
+      "distance_left": 3,
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0,
+      "attacks_received_this_turn": 0,
+      "attack_history": [],
+      "progression_step": 0,
+      "chosen_alternative": "",
+      "capture_started_turn": 0
+    },
+    "4,6": {
+      "q": 4,
+      "r": 6,
+      "player": 2,
+      "unit_type": 1,
+      "shortcut": "",
+      "available_health": 10,
+      "distance_left": 3,
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0,
+      "attacks_received_this_turn": 0,
+      "attack_history": [],
+      "progression_step": 0,
+      "chosen_alternative": "",
+      "capture_started_turn": 0
+    },
+    "5,5": {
+      "q": 5,
+      "r": 5,
+      "player": 2,
+      "unit_type": 1,
+      "shortcut": "",
+      "available_health": 10,
+      "distance_left": 3,
+      "last_acted_turn": 0,
+      "last_toppedup_turn": 0,
+      "attacks_received_this_turn": 0,
+      "attack_history": [],
+      "progression_step": 0,
+      "chosen_alternative": "",
+      "capture_started_turn": 0
+    }
+  },
+  "screenshot_index_info": {
+    "last_updated_at": "2025-12-22T06:53:12.414107Z",
+    "last_indexed_at": "2025-12-22T06:53:15.753023Z",
+    "needs_indexing": false
+  },
+  "content_hash": "",
+  "version": "5",
+  "crossings": {}
+}
